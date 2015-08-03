@@ -1,0 +1,18 @@
+<h1>ふりかえり新規作成</h1>
+
+<%= form_for(@kpt) do |f| %>
+  <div class="row">
+    <div class="span6">
+      <h2>Keep</h2>
+      <%= f.text_area :keep, placeholder: "・今後続けていきたい事" %>
+      <h2>Problem</h2>
+      <%= f.text_area :problem, placeholder: "・改善したい事"%>
+    </div>
+
+    <div class="span6">
+      <h2>Try</h2>
+      <%= f.text_area :try, placeholder: "・改善するためにする事" %>
+    </div>
+  </div>
+  <%= f.submit class: "kpt_submit" %>
+<% end %>

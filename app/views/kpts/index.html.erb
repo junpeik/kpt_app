@@ -1,0 +1,12 @@
+<h1>ふりかえり一覧</h1>
+
+<%= link_to '新規作成', new_kpt_path %>
+
+<% if @kpts.any? %>
+  <ul class="kpt_index">
+    <% @kpts.each do |kpt| %>
+    <li><%= link_to kpt.created_at, kpt %></li>
+    <% end %>
+  </ul>
+<% end %>
+
