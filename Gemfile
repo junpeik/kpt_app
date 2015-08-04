@@ -17,6 +17,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
 gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :test do
   gem 'selenium-webdriver'

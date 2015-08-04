@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150803081942) do
+ActiveRecord::Schema.define(version: 20150804103630) do
 
   create_table "kpts", force: :cascade do |t|
     t.string   "keep"
@@ -20,5 +20,7 @@ ActiveRecord::Schema.define(version: 20150803081942) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "kpts", ["created_at"], name: "index_kpts_on_created_at"
 
 end
