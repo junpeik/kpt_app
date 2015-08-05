@@ -26,4 +26,19 @@ describe Kpt do
     before { kpt.try = " " }
     it { should_not be_valid }
   end
+
+  describe "keep accepts more than 256 characters" do
+    before { kpt.keep = "a" * 300 }
+    it { should be_valid }
+  end
+
+  describe "problem accepts more than 256 characters" do
+    before { kpt.problem = "a" * 300 }
+    it { should be_valid }
+  end
+
+  describe "try accepts more than 256 characters" do
+    before { kpt.try = "a" * 300 }
+    it { should be_valid }
+  end
 end
