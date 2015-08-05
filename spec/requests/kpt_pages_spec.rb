@@ -63,6 +63,11 @@ describe "Kpt Pages" do
       it "should not create a kpt" do
         expect{ click_button submit }.not_to change(Kpt, :count)
       end
+
+      describe "submit blank kpt" do
+        before { click_button submit }
+        it { should have_selector('div.alert.alert-error') }
+      end
     end
 
     describe "with valid information" do

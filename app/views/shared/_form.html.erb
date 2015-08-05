@@ -1,4 +1,5 @@
 <%= form_for(@kpt) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="row">
     <div class="span6">
       <h2>Keep</h2>
