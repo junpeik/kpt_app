@@ -1,0 +1,15 @@
+<h1><%= @user.name %>の振り返り</h1>
+
+<%= link_to '新規作成', new_user_kpt_path(@user) %>
+
+<ul class="kpts">
+<% @user.kpts.each do |kpt| %>
+  <li>
+    <%= link_to simple_time(kpt.created_at), user_kpt_path(@user, kpt) %>
+    <%= link_to '[編集]', edit_user_kpt_path(@user, kpt) %>
+    <%= link_to '[削除]', user_kpt_path(@user, kpt), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  </li>
+<% end %>
+</ul>
+
+<%= will_paginate @kpts %>

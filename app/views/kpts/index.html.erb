@@ -2,16 +2,8 @@
 
 <%= link_to '新規作成', new_kpt_path %>
 
-<% if @kpts.any? %>
-  <ul class="kpt_index">
-    <% @kpts.each do |kpt| %>
-    <li>
-      <%= link_to simple_time(kpt.created_at), kpt %>
-      <%= link_to '[編集]', edit_kpt_path(kpt) %>
-      <%= link_to '[削除]', kpt_path(kpt), method: :delete, data: { confirm: "本当に削除しますか？" } %>
-    </li>
-    <% end %>
-  </ul>
-  <%= will_paginate %>
-<% end %>
+<ul class="kpts">
+  <%= render @kpts %>
+</ul>
+<%= will_paginate %>
 
