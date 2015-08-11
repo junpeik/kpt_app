@@ -8,7 +8,7 @@ describe "Kpt Pages" do
   describe "Index page" do
     # !をつけなければLazy Loadによりエラー
     let!(:kpt) { FactoryGirl.create(:kpt) }
-    before { visit root_path }
+    before { visit kpts_path }
 
     it { should have_content('ふりかえり一覧') }
     it { should have_link('新規作成', href: new_kpt_path) }
@@ -72,7 +72,7 @@ describe "Kpt Pages" do
 
     describe "with valid information" do
       before do
-        fill_in "kpt_keep",     with: "Keep"
+        fill_in "kpt_keep",     with: "kpt_pages_spec_keep"
         fill_in "kpt_problem",  with: "Problem"
         fill_in "kpt_try",      with: "Try"
       end
@@ -83,7 +83,7 @@ describe "Kpt Pages" do
 
       describe "after saving the kpt" do
         before { click_button submit }
-        let(:kpt) { Kpt.first }
+        let(:kpt) { Kpt.find_by(keep: 'kpt_pages_spec_keep') }
 
         it { should have_link("#{simple_time(kpt.created_at)}", href: kpt_path(kpt)) }
         it { should have_selector('div.alert.alert-success', text: 'created') }
