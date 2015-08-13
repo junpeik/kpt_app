@@ -1,0 +1,7 @@
+<% if signed_in? %>
+  <li><%= link_to "ログイン", new_session_path %></li>
+<% else %>
+  <li>
+    <%= link_to "ログアウト", session_path(current_user), method: :delete, data: { confirm: 'ログアウトしますか？' } %>
+  </li>
+<% end %>
