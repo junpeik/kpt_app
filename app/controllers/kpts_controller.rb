@@ -3,7 +3,7 @@ class KptsController < ApplicationController
   before_action :set_kpt, only: [:show, :edit, :update, :destroy]
 
   def index
-    @kpts = @user.kpts
+    redirect_to @user
   end
 
   def show; end
