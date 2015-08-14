@@ -5,4 +5,9 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_action :login_confirmation
+
+  private
+  def login_confirmation
+    redirect_to new_session_path unless signed_in?
+  end
 end
