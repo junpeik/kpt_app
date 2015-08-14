@@ -4,7 +4,8 @@
       <%= link_to "KPT app", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home",    root_path %></li>
+          <%= render 'layouts/login_logout' %>
+          <li><%= link_to "Home", root_path %></li>
         </ul>
       </nav>
     </div>

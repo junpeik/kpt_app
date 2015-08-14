@@ -1,31 +1,31 @@
 class KptsController < ApplicationController
-  before_action :set_user, only: [:new, :edit, :create]
+  before_action :set_user, only: [:index, :new, :edit, :create]
   before_action :set_kpt, only: [:show, :edit, :update, :destroy]
 
-  def show
+  def index
+    redirect_to @user
   end
+
+  def show; end
 
   def new
     @kpt = @user.kpts.build
   end
 
-  def edit
-  end
-
-  def create
+ def create
     @kpt = @user.kpts.build(kpt_params)
     if @kpt.save
-      flash[:success] = "Successfully created."
-      redirect_to user_path(@kpt.user_id)
+      redirect_to [@kpt.user, @kpt], success: "Successfully created."
     else
       render 'new'
     end
-  end
+ end
+
+  def edit; end
 
   def update
-    if @kpt.update_attributes(kpt_params)
-      flash[:success] = "Successfully updated."
-      redirect_to user_path(@kpt.user_id)
+    if @kpt.update(kpt_params)
+      redirect_to [@kpt.user, @kpt], success: "Successfully updated."
     else
       render 'edit'
     end
@@ -33,8 +33,7 @@ class KptsController < ApplicationController
 
   def destroy
     @kpt.destroy
-    flash[:success] = "Successfully destroyed."
-    redirect_to user_path(params[:user_id])
+    redirect_to [@kpt.user, :kpts], success: "Successfully destroyed."
   end
 
   private
