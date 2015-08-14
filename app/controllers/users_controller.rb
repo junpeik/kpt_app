@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :login_confirmation, except: [:new, :create]
+  before_action :login_confirmation, except: [:new, :create] #TODO 漏れが出てくるためapplicationコントローラに記述する
 
   def index
     @users = User.paginate(page: params[:page])

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'users#index'
   resources :users do
-    resources :kpts
+    resources :kpts #TODO kpts→records
   end
   resources :sessions, only: [:new, :create, :destroy]
 
