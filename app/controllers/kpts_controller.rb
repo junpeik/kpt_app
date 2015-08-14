@@ -9,17 +9,16 @@ class KptsController < ApplicationController
     @kpt = @user.kpts.build
   end
 
-  def edit
-  end
-
-  def create
+ def create
     @kpt = @user.kpts.build(kpt_params)
     if @kpt.save
-      flash[:success] = "Successfully created."
-      redirect_to user_path(@kpt.user_id)
+      redirect_to [@kpt.user, @kpt], success: "Successfully created."
     else
       render 'new'
     end
+ end
+
+  def edit
   end
 
   def update
