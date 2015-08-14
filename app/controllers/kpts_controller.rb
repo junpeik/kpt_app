@@ -6,8 +6,7 @@ class KptsController < ApplicationController
     @kpts = @user.kpts
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @kpt = @user.kpts.build
@@ -22,13 +21,11 @@ class KptsController < ApplicationController
     end
  end
 
-  def edit
-  end
+  def edit; end
 
   def update
-    if @kpt.update_attributes(kpt_params)
-      flash[:success] = "Successfully updated."
-      redirect_to user_path(@kpt.user_id)
+    if @kpt.update(kpt_params)
+      redirect_to [@kpt.user, @kpt], success: "Successfully updated."
     else
       render 'edit'
     end
@@ -36,8 +33,7 @@ class KptsController < ApplicationController
 
   def destroy
     @kpt.destroy
-    flash[:success] = "Successfully destroyed."
-    redirect_to user_path(params[:user_id])
+    redirect_to [@kpt.user, :kpts], success: "Successfully destroyed."
   end
 
   private
