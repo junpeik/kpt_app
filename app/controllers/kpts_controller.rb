@@ -1,6 +1,10 @@
 class KptsController < ApplicationController
-  before_action :set_user, only: [:new, :edit, :create]
+  before_action :set_user, only: [:index, :new, :edit, :create]
   before_action :set_kpt, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @kpts = @user.kpts
+  end
 
   def show
   end

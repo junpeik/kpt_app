@@ -1,5 +1,5 @@
 <h1><%= simple_time(@kpt.created_at) %>のふりかえり</h1>
-
+<p><%= link_to '一覧に戻る', [@kpt.user, :kpts] %></p>
 <div class="row">
   <div class="span6">
     <h2>Keep</h2>
